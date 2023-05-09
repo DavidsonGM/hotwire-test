@@ -1,0 +1,20 @@
+<div class="min-h-screen flex flex-col justify-center items-center">
+  <div class="max-w-lg w-full bg-cyberpurple shadow-md rounded-lg overflow-hidden">
+    <div class="bg-cyberblue text-white py-4 px-6">
+      <h1 class="text-4xl font-bold">Lista de Tarefas</h1>
+    </div>
+    <div class="p-6">
+      <ul>
+<!--        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">-->
+<!--          Nova task-->
+<!--        </button>-->
+        <%= render 'user_tasks/partials/form' %>
+        <%= turbo_frame_tag 'todos' do %>
+          <% @user_tasks.each do |task| %>
+            <%= render 'user_tasks/partials/todo' , task: task %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
